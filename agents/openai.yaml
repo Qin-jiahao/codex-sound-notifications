@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sound Notifications"
+  short_description: "Manage Codex completion sounds and keep the skill updated"
+  default_prompt: "Use $codex-sound-notifications to list, preview, apply, or update the bundled completion sound skill for Codex."
