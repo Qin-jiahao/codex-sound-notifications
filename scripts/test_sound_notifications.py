@@ -12,6 +12,9 @@ import zipfile
 from pathlib import Path
 from unittest import mock
 
+if sys.platform != "darwin":
+    raise unittest.SkipTest("macOS backend tests require macOS (fcntl and afplay)")
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))

@@ -1,3 +1,11 @@
+## macOS and Windows integration
+
+- Add a separate Windows Python session monitor with native WAV playback, primary-session filtering and incomplete JSONL buffering.
+- Share the sound library, preview and apply commands across both platforms; use celebration.wav by default.
+- Preserve the macOS notify backend and keep Windows configuration independent of config.toml.
+- Add per-user Windows logon startup, migration documentation, portable monitor tests and Windows/macOS CI.
+- Credit YANG301 for the Windows session-monitor approach; retain original zty42 and audio provenance credits.
+
 # Changelog
 
 All notable project changes are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/), and versions follow [Semantic Versioning](https://semver.org/).

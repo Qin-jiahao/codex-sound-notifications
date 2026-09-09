@@ -182,6 +182,10 @@ def iter_nested_commands(command: Sequence[str]) -> list[list[str]]:
 
 
 def read_current_sound_from_config(config_path: Path) -> str | None:
+    if sys.platform == "win32":
+        from windows_sound_notifications import read_settings
+        sound = read_settings().get("sound_path")
+        return Path(sound).name if sound else None
     if not config_path.exists():
         return None
     notify = load_existing_notify(split_lines(config_path.read_text()))
@@ -294,8 +298,12 @@ def install(
     bundled_sounds_dir: Path | None = None,
     preserve_existing_notify: bool = False,
 ) -> dict[str, str]:
+    if sys.platform == "win32":
+        from windows_sound_notifications import install as install_windows
+        sound = install_sound_file(sound_file, sound_dir, zip_path, bundled_sounds_dir)
+        return install_windows(sound)
     if sys.platform != "darwin":
-        raise RuntimeError("this installer currently supports macOS only")
+        raise RuntimeError("this installer supports macOS and Windows only")
 
     notifier_path = Path(__file__).with_name("codex_sound_notify.py").resolve()
     if not notifier_path.exists():
@@ -329,6 +337,9 @@ def install(
 
 
 def main(argv: list[str] | None = None) -> int:
+    if sys.platform == "win32":
+        from windows_sound_notifications import main as windows_main
+        return windows_main(argv)
     args = parse_args(argv)
     result = install(
         sound_file=args.sound_file,

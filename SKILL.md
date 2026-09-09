@@ -1,11 +1,32 @@
 ---
 name: codex-sound-notifications
-description: Set up persistent Codex sound notifications on macOS by configuring Codex's official user-level `notify` command, playing bundled WAV files after completed turns, switching or importing sounds, diagnosing missed or duplicate notifications, and checking or applying skill updates. Use when a user wants a sound after every Codex reply, wants to change or preview the sound, needs to repair completion notifications, or wants to update this skill.
+description: Set up persistent Codex sound notifications on macOS and Windows. Use the Windows session-monitor backend on Windows; on macOS configure Codex's official user-level `notify` command, playing bundled WAV files after completed turns, switching or importing sounds, diagnosing missed or duplicate notifications, and checking or applying skill updates. Use when a user wants a sound after every Codex reply, wants to change or preview the sound, needs to repair completion notifications, or wants to update this skill.
 ---
 
 # Codex Sound Notifications
 
 Configure a persistent local sound for completed Codex turns. Use the bundled scripts so the sound path, completion filter, and user-level `notify` command remain consistent.
+
+## Platform selection
+
+Detect the operating system before installation. `setup_sound_notifications.py` dispatches automatically. Both platforms share the bundled WAV files and `manage_sound_notifications.py` commands.
+
+### Windows
+
+- Require Python 3.9+, Windows PowerShell, and local Codex session logs.
+- Run `python scripts/setup_sound_notifications.py --sound-file celebration.wav`.
+- The Windows backend starts a hidden Python monitor and registers the current user's `CodexSoundNotifications` logon task. It does not edit Codex `notify` or require restarting Codex.
+- Use `--sound-path` for a local PCM WAV, `--sessions-root` for custom logs, `--no-task` to disable logon startup, and `--no-start` to defer starting the monitor.
+- Use the shared manager to list, preview, and apply sounds. It preserves the configured session path and startup preference.
+- Read `docs/windows.md` before migrating an existing YANG301 installation so an old monitor cannot cause duplicate playback.
+- After code updates, rerun setup with the selected sound to restart the monitor.
+- Diagnostics live at `CODEX_HOME/codex-sound-notifications.log` (default `~/.codex`). Playback success logs do not prove that the speaker was audible.
+- Run `python -m unittest discover -s scripts -p "test*.py"` after changes. macOS-specific tests skip on Windows.
+- Never run the macOS notify configuration workflow on Windows.
+
+### macOS
+
+The requirements, installation workflow and notify behavior below apply to macOS only.
 
 ## Requirements
 

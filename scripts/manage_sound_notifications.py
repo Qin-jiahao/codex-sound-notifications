@@ -110,6 +110,13 @@ def format_sound_list(sounds: Sequence[str], current_sound: str | None) -> str:
 
 def preview_sound(sound_name: str, player: str, sounds_dir: Path) -> int:
     sound_path = sounds_dir / sound_name
+    if sys.platform == "win32" and player == DEFAULT_PLAYER:
+        import winsound
+        try:
+            winsound.PlaySound(str(sound_path), winsound.SND_FILENAME | winsound.SND_NODEFAULT)
+            return 0
+        except RuntimeError:
+            return 1
     try:
         result = subprocess.run(
             [player, str(sound_path)],
