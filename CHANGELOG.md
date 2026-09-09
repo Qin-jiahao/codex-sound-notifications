@@ -1,3 +1,9 @@
+## Rename to Codex Sound Alerts
+
+- Rename the project and skill to `codex-sound-alerts` and update installation links and the default update repository.
+- Keep runtime script filenames, state filenames and the Windows scheduled-task name compatible with existing installations.
+- Preserve the original upstream repository links and credits.
+
 ## macOS and Windows integration
 
 - Add a separate Windows Python session monitor with native WAV playback, primary-session filtering and incomplete JSONL buffering.

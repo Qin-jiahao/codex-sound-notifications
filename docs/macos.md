@@ -1,6 +1,6 @@
 [English](../README.md) | [简体中文](../README-CN.md)
 
-# Codex Sound Notifications
+# Codex Sound Alerts
 
 Play a local sound whenever Codex finishes a turn on macOS.
 
@@ -33,9 +33,9 @@ Clone the skill into the user-level Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git \
-  ~/.codex/skills/codex-sound-notifications
-cd ~/.codex/skills/codex-sound-notifications
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git \
+  ~/.codex/skills/codex-sound-alerts
+cd ~/.codex/skills/codex-sound-alerts
 python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 
@@ -44,7 +44,7 @@ Then quit Codex completely and reopen it. Existing app processes may keep the pr
 You can also ask Codex to install the skill:
 
 ```text
-$skill-installer install https://github.com/Qin-jiahao/codex-sound-notifications
+$skill-installer install https://github.com/Qin-jiahao/codex-sound-alerts
 ```
 
 The skill installer copies the files but does not enable the completion callback. Run the setup command once after installation.
@@ -86,10 +86,10 @@ python3 scripts/manage_sound_notifications.py --update
 You can invoke the same workflow from a Codex conversation:
 
 ```text
-$codex-sound-notifications list sounds
-$codex-sound-notifications preview celebration.wav
-$codex-sound-notifications switch to button.wav
-$codex-sound-notifications check for updates
+$codex-sound-alerts list sounds
+$codex-sound-alerts preview celebration.wav
+$codex-sound-alerts switch to button.wav
+$codex-sound-alerts check for updates
 ```
 
 ## Existing `notify` configurations
@@ -164,7 +164,7 @@ The suite covers configuration replacement and preservation, payload parsing, co
 ## Project layout
 
 ```text
-codex-sound-notifications/
+codex-sound-alerts/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/sounds/*.wav

@@ -1,4 +1,4 @@
-# Codex 回复完成提示音：macOS / Windows
+# Codex 完成提示音：macOS / Windows
 
 [English](README.md) · [macOS 详细说明](docs/macos-CN.md) · [Windows 详细说明](docs/windows.md)
 
@@ -18,8 +18,8 @@
 ## macOS 安装
 
 ```bash
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git ~/.codex/skills/codex-sound-notifications
-cd ~/.codex/skills/codex-sound-notifications
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git ~/.codex/skills/codex-sound-alerts
+cd ~/.codex/skills/codex-sound-alerts
 python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 
@@ -28,8 +28,8 @@ python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 ## Windows 安装（PowerShell）
 
 ```powershell
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git "$env:USERPROFILE\.codex\skills\codex-sound-notifications"
-Set-Location "$env:USERPROFILE\.codex\skills\codex-sound-notifications"
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git "$env:USERPROFILE\.codex\skills\codex-sound-alerts"
+Set-Location "$env:USERPROFILE\.codex\skills\codex-sound-alerts"
 python scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 

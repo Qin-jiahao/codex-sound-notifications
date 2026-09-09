@@ -20,11 +20,11 @@ import zipfile
 import setup_sound_notifications as setup_mod
 
 DEFAULT_PLAYER = "afplay"
-DEFAULT_REPO = "Qin-jiahao/codex-sound-notifications"
+DEFAULT_REPO = "Qin-jiahao/codex-sound-alerts"
 DEFAULT_REF = "main"
 DEFAULT_TIMEOUT_SECONDS = 20.0
 UPDATE_STATE_FILENAME = ".codex-sound-notifications-upstream.json"
-HTTP_USER_AGENT = "codex-sound-notifications"
+HTTP_USER_AGENT = "codex-sound-alerts"
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

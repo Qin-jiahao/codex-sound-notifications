@@ -1,9 +1,9 @@
 ---
-name: codex-sound-notifications
+name: codex-sound-alerts
 description: Set up persistent Codex sound notifications on macOS and Windows. Use the Windows session-monitor backend on Windows; on macOS configure Codex's official user-level `notify` command, playing bundled WAV files after completed turns, switching or importing sounds, diagnosing missed or duplicate notifications, and checking or applying skill updates. Use when a user wants a sound after every Codex reply, wants to change or preview the sound, needs to repair completion notifications, or wants to update this skill.
 ---
 
-# Codex Sound Notifications
+# Codex Sound Alerts
 
 Configure a persistent local sound for completed Codex turns. Use the bundled scripts so the sound path, completion filter, and user-level `notify` command remain consistent.
 

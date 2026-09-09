@@ -1,6 +1,6 @@
 [English](../README.md) | [简体中文](../README-CN.md)
 
-# Codex 回复完成提示音
+# Codex 完成提示音
 
 Codex 每轮回复结束后，在 macOS 本地播放提示音。
 
@@ -33,9 +33,9 @@ Codex 每轮回复结束后，在 macOS 本地播放提示音。
 
 ```bash
 mkdir -p ~/.codex/skills
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git \
-  ~/.codex/skills/codex-sound-notifications
-cd ~/.codex/skills/codex-sound-notifications
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git \
+  ~/.codex/skills/codex-sound-alerts
+cd ~/.codex/skills/codex-sound-alerts
 python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 
@@ -44,7 +44,7 @@ python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 你也可以在 Codex 对话中调用 `$skill-installer`：
 
 ```text
-$skill-installer install https://github.com/Qin-jiahao/codex-sound-notifications
+$skill-installer install https://github.com/Qin-jiahao/codex-sound-alerts
 ```
 
 `$skill-installer` 只负责复制 Skill 文件，不会自动写入完成回调。安装后仍需执行一次上面的配置命令。
@@ -86,10 +86,10 @@ python3 scripts/manage_sound_notifications.py --update
 你也可以直接在 Codex 对话里调用：
 
 ```text
-$codex-sound-notifications 列出声音
-$codex-sound-notifications 预览 celebration.wav
-$codex-sound-notifications 切换到 button.wav
-$codex-sound-notifications 检查更新
+$codex-sound-alerts 列出声音
+$codex-sound-alerts 预览 celebration.wav
+$codex-sound-alerts 切换到 button.wav
+$codex-sound-alerts 检查更新
 ```
 
 ## 已有 `notify` 配置时怎么处理
@@ -164,7 +164,7 @@ python3 scripts/test_sound_notifications.py
 ## 目录结构
 
 ```text
-codex-sound-notifications/
+codex-sound-alerts/
 ├── SKILL.md
 ├── agents/openai.yaml
 ├── assets/sounds/*.wav

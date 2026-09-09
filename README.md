@@ -1,4 +1,4 @@
-# Codex Sound Notifications — macOS & Windows
+# Codex Sound Alerts — macOS & Windows
 
 [简体中文](README-CN.md) · [macOS guide](docs/macos.md) · [Windows guide](docs/windows.md)
 
@@ -18,8 +18,8 @@ A final reply does not guarantee that the underlying task succeeded. Linux is cu
 ## Install on macOS
 
 ```bash
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git ~/.codex/skills/codex-sound-notifications
-cd ~/.codex/skills/codex-sound-notifications
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git ~/.codex/skills/codex-sound-alerts
+cd ~/.codex/skills/codex-sound-alerts
 python3 scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 
@@ -28,8 +28,8 @@ Restart Codex completely after setup. See the [macOS guide](docs/macos.md) for e
 ## Install on Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/Qin-jiahao/codex-sound-notifications.git "$env:USERPROFILE\.codex\skills\codex-sound-notifications"
-Set-Location "$env:USERPROFILE\.codex\skills\codex-sound-notifications"
+git clone https://github.com/Qin-jiahao/codex-sound-alerts.git "$env:USERPROFILE\.codex\skills\codex-sound-alerts"
+Set-Location "$env:USERPROFILE\.codex\skills\codex-sound-alerts"
 python scripts/setup_sound_notifications.py --sound-file celebration.wav
 ```
 

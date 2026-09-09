@@ -53,7 +53,7 @@ class SetupSoundNotificationsTests(unittest.TestCase):
                 "",
             ]
         )
-        notifier = Path("/Users/test/.codex/skills/codex-sound-notifications/scripts/codex_sound_notify.py")
+        notifier = Path("/Users/test/.codex/skills/codex-sound-alerts/scripts/codex_sound_notify.py")
         sound = Path("/Users/test/.codex/sounds/notification.wav")
 
         updated = setup_mod.update_config_text(
@@ -63,13 +63,13 @@ class SetupSoundNotificationsTests(unittest.TestCase):
             event_name="agent-turn-complete",
         )
 
-        self.assertIn('notify = ["python3", "/Users/test/.codex/skills/codex-sound-notifications/scripts/codex_sound_notify.py"', updated)
+        self.assertIn('notify = ["python3", "/Users/test/.codex/skills/codex-sound-alerts/scripts/codex_sound_notify.py"', updated)
         self.assertNotIn("terminal-notifier", updated)
         self.assertIn('notifications = ["approval-requested"]', updated)
 
     def test_update_config_can_preserve_existing_notify_explicitly(self) -> None:
         original = 'notify = ["terminal-notifier", "-message", "done"]\n'
-        notifier = Path("/Users/test/.codex/skills/codex-sound-notifications/scripts/codex_sound_notify.py")
+        notifier = Path("/Users/test/.codex/skills/codex-sound-alerts/scripts/codex_sound_notify.py")
         sound = Path("/Users/test/.codex/sounds/notification.wav")
 
         updated = setup_mod.update_config_text(
@@ -85,7 +85,7 @@ class SetupSoundNotificationsTests(unittest.TestCase):
 
     def test_update_config_does_not_add_tui_notifications(self) -> None:
         original = ""
-        notifier = Path("/Users/test/.codex/skills/codex-sound-notifications/scripts/codex_sound_notify.py")
+        notifier = Path("/Users/test/.codex/skills/codex-sound-alerts/scripts/codex_sound_notify.py")
         sound = Path("/Users/test/.codex/sounds/notification.wav")
 
         updated = setup_mod.update_config_text(
@@ -102,8 +102,8 @@ class SetupSoundNotificationsTests(unittest.TestCase):
         original = (
             'notify = ["python3", "/Users/test/.codex/skills/setup-sound-notifications/scripts/codex_sound_notify.py", "--sound-path", "/Users/test/.codex/skills/setup-sound-notifications/assets/sounds/notification.wav", "--event", "agent-turn-complete"]\n'
         )
-        notifier = Path("/Users/test/.codex/skills/codex-sound-notifications/scripts/codex_sound_notify.py")
-        sound = Path("/Users/test/.codex/skills/codex-sound-notifications/assets/sounds/celebration.wav")
+        notifier = Path("/Users/test/.codex/skills/codex-sound-alerts/scripts/codex_sound_notify.py")
+        sound = Path("/Users/test/.codex/skills/codex-sound-alerts/assets/sounds/celebration.wav")
 
         updated = setup_mod.update_config_text(
             original_text=original,
@@ -384,7 +384,7 @@ class ManageSoundNotificationsTests(unittest.TestCase):
     def test_default_update_repository_targets_maintained_fork(self) -> None:
         self.assertEqual(
             manage_mod.DEFAULT_REPO,
-            "Qin-jiahao/codex-sound-notifications",
+            "Qin-jiahao/codex-sound-alerts",
         )
 
     def test_parse_github_repo_slug_supports_common_forms(self) -> None:
